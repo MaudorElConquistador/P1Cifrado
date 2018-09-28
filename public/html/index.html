@@ -11,8 +11,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+	<h3 class="card-panel indigo lighten-1 center-align">Registrar personas</h3>
 	<div class="row">
-	<form class="col s12" action="Registrar">
+	<form class="col s12" >
 		<div class="row">
 			<div class="input-field col s8">
 				<i class="material-icons prefix">account_circle</i>
@@ -26,17 +27,19 @@
 			</div>
 			<div class="input-field col s8">
 				<i class="material-icons prefix">lock</i>
-				<input type="number" id="edad">
-				<label class="activate" for="edad">Ingresa tu edad</label>
+				<input type="number" id="edada">
+				<label class="activate" for="edada">Ingresa tu edad</label>
 			</div>
 			<div class="input-field col s8">
 				<i class="material-icons prefix">lock</i>
-				<input type="text" id="contraseña">
-				<label class="activate" for="contraseña">Ingresa tu telefono</label>
+				<input type="text" id="telefono">
+				<label class="activate" for="telefono">Ingresa tu telefono</label>
 			</div>
 			<div class="input-field col s8">
-				<input type="button"  value="Registrar"  class="btn waves-effect waves-light" name="Entrar" onclick="">
+				<input type="button"  value="Registrar"  class="btn waves-effect waves-light" name="Entrar" onclick="registrar(event)">
 			</div>
+			<div id="exito"></div>
+			<div id="error"></div>
 		</div>
 	</form>
 	</div>
