@@ -33,13 +33,63 @@ function Consulta1() {
         xhr.onreadystatechange = function() {
                 // si la respuesta fue exitosa
                 if(xhr.readyState == 4 && xhr.status == 200) {
-                        console.log(JSON.parse(xhr.responseText));
-                        //document.getElementById("Consulta1").innerHTML = xhr.responseText;
+                    limpiardivCon();
+                    console.log();
+                    var longitud = JSON.parse(xhr.responseText).length;   
+                    var json = JSON.parse(xhr.responseText);
+                    Tabla(json, longitud);
                 }
                 // si la respuesta trajo error
                 else if(xhr.readyState == 4 && xhr.status != 200){
-                        var message = xhr.responseText;
-                        message = xhr.responseText;
+                       
                 }
         }
+}
+function limpiardivCon(e) {
+    document.getElementById("Consultas").innerHTML="";
+}
+function Tabla(json, longitud) {
+    var Tabl = document.createElement("table");
+    var th1 = document.createElement("th");
+    var th2 = document.createElement("th");
+    var th3 = document.createElement("th");
+    var th4 = document.createElement("th");
+    var tr = document.createElement("tr");
+    var thead = document.createElement("thead");
+    var tbody = document.createElement("tbody");
+    th1.innerHTML="Nombre";
+    th2.innerHTML="Email";
+    th3.innerHTML="Edad";
+    th4.innerHTML="Telefono";
+    tr.appendChild(th1);
+    tr.appendChild(th2);
+    tr.appendChild(th3);
+    tr.appendChild(th4);
+    thead.appendChild(tr);
+    Tabl.appendChild(thead);
+    Tabl.setAttribute("class","responsive-table"); 
+    thead.setAttribute("id","col s5");
+    for (var i = 0; i <= longitud -1 ; i++) {
+        var th1a = document.createElement("th");
+        var th2a = document.createElement("th");
+        var th3a = document.createElement("th");
+        var th4a = document.createElement("th");
+        var tra = document.createElement("tr"); 
+        console.log("Esto es el json " + JSON.stringify(json[i])+" mas la longitud"+ longitud);
+        var nombre = document.createTextNode(JSON.stringify(json[i].nom_usu));
+        var ema = document.createTextNode(JSON.stringify(json[i].ema_usu));
+        var edad = document.createTextNode(JSON.stringify(json[i].edad_usu));
+        var tel = document.createTextNode(JSON.stringify(json[i].tel_usu));
+        th1a.appendChild(nombre);
+        th2a.appendChild(ema);
+        th3a.appendChild(edad);
+        th4a.appendChild(tel);
+        tra.appendChild(th1a);
+        tra.appendChild(th2a);
+        tra.appendChild(th3a);
+        tra.appendChild(th4a);
+        tbody.appendChild(tra);
+        Tabl.appendChild(tbody);
+    }
+    document.getElementById("Consultas").appendChild(Tabl);;
 }

@@ -34,9 +34,13 @@ router.get('/descifrar', function(req, res) {
 router.post('/consultar', function(req, res) {
 	console.log("Checando que entre a la funcion");
 	db.Consultar().then(succes => {
-		console.log("Aqui viendo " +succes);
-		res.send(succes);
+		console.log(JSON.stringify(succes));
+		cifrar.d(succes);	
+		res.send(JSON.stringify(succes));
 	}); 
+});
+router.post('/consultarDes', function(req, res) {
+	// body...
 });
 
 
