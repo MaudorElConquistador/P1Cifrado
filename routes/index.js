@@ -39,8 +39,13 @@ router.post('/consultar', function(req, res) {
 		res.send(JSON.stringify(succes));
 	}); 
 });
+
 router.post('/consultarDes', function(req, res) {
-	// body...
+	db.Consultar().then(succes => {
+		console.log(JSON.stringify(succes));
+		cadena = cifrar.d(succes);	
+		res.send(JSON.stringify(cadena));
+	});
 });
 
 

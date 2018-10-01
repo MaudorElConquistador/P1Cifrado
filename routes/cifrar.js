@@ -17,7 +17,7 @@ var funciones = {
       var ema = CryptoJS.AES.decrypt(parametros.ema_usu, 'secret key 12345');
       var edad = CryptoJS.AES.decrypt(parametros.edad_usu, 'secret key 12345');
       var tel = CryptoJS.AES.decrypt(parametros.tel_usu, 'secret key 12345');           
-      nuevo = {"index":parametros.length,"nom":nom.toString(CryptoJS.enc.Utf8) ,"ema:":ema.toString(CryptoJS.enc.Utf8),"edad":edad.toString(CryptoJS.enc.Utf8),"tel":tel.toString(CryptoJS.enc.Utf8)}; 
+      nuevo = {"index":parametros.length,"nom":nom.toString(CryptoJS.enc.Utf8) ,"ema":ema.toString(CryptoJS.enc.Utf8),"edad":edad.toString(CryptoJS.enc.Utf8),"tel":tel.toString(CryptoJS.enc.Utf8)}; 
       return nuevo;
     }
     console.log("Estos es hola señores::." + JSON.stringify(hola));
